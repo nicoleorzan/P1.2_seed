@@ -55,9 +55,62 @@ course **Foundation on HPC**, a course in common among MHPC and DSSC
 
 ### Part 2: parallel programming (I.G.)
 
+- Friday November 3:
+  - lecture one: Parallel Thinking
+  - lecture two : Parallel Programming with MPI (part 1)
+  - tutorial: Basic Examples of Parallel Programming with MPI
+  - exercise session (mandatory for MHPC students)
+
+- Monday November 6: 
+  - lecture one: MPI Communications 
+  - lecture two : Parallel Programming with MPI (part 2)
+  - tutorial: Basic Examples of Parallel Programming 
+  - exercise session (mandatory for MHPC students)
+
+- Wednesday November 8 (for MHPC students only): 
+  - lecture one: Strategies of Parallelization
+  - exercise session (mandatory for MHPC students)
+
+- Friday November 10 : 
+  - lecture one: Parallel Programming with OpenMP (part 1)
+  - tutorial: Basic Examples of Parallel Programming with OpenMP
+  - lecture two (mandatory for MHPC students): Parallel Programming with OpenMP (part 2)
+  - exercise session (mandatory for MHPC students)
+  
+- Monday November 12:
+  - Parallelization of a simple problem 
+  - Advanced Parallelization of a simple problem (mandatory for MHPC students)
+  
+- Wednesday November 15 (for MHPC students only):
+  - Exame
+  
+- Friday November 17:
+  - lecture one: Parallel Programming with CUDA (part 1)
+  - tutorial: Basic Examples of Parallel Programming with CUDA
+  - exercise session (mandatory for MHPC students)
+
+- Monday November 20: 
+  - lecture one: Parallel Programming with CUDA (part 2)
+  - exercise session
+  - lecture one: Parallel Programming with CUDA (part 3, mandatory for MHPC students)
+  - exercise session (mandatory for MHPC students)
+
+- Wednesday November 22 (for MHPC students only): 
+  - Advanced Practicals
+  - Advanced Practicals
+
+- Monday November 27 : 
+  - lecture one: Introduction to Hybrid Programming
+  - tutorial: Basic Examples of Hybrid Programming
+  - advanced exercise session (mandatory for MHPC students)
+  
+- Wednesday November 29: (for MHPC students only)
+  - Parallel Programming: How To (for MHPC students only)
+
+- Friday December 1 (for MHPC students only):
+  - Exame
+  
 ### Part 3: advanced topics
-
-
 
 ### Preparation
 
