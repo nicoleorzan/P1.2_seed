@@ -99,12 +99,12 @@ Start by running the MPI code with only one processor doing the numerical comput
 
  4. Again keeping Niter = 1000, run the MPI code for 2, 4, 8 and 16 and 20 MPI processs. 
 
-In principle, all that needs to be done is to run the program multiple times, changing the -np argument to mpirun each time. Such a study could be as simple as the following bash for loop::
-
+In principle, all that needs to be done is to run the program multiple times, changing the -np argument to mpirun each time. Such a study could be as simple as the following bash for loop:
+```
  for procs in 1 2 4 8 16 32 64 ; do
  time mpirun -np ${procs} my-program the-input
  done
-
+```
 A real study is of course a litte bit more complicated because we neeed to get the performance of each of those runs. 
 Furthermore we run on Ulysses and then we need to submit jobs.
 
@@ -130,5 +130,3 @@ increasing the number of iterations, Niter.
 number of compute nodes increase in proportion. Comment on your results.
 
  10. Is this problem more appropriate for weak or strong scaling?
-
-Ulisse Environment Setup
