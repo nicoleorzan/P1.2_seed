@@ -99,6 +99,9 @@ course **Foundation on HPC**, a course in common among MHPC and DSSC
   - Advanced Practicals
   - Advanced Practicals
 
+- Friday November 24 (S.C., L.T.)
+  - Benchmarking MPI applications
+
 - Monday November 27 : 
   - lecture one: Introduction to Hybrid Programming
   - tutorial: Basic Examples of Hybrid Programming
