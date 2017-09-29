@@ -55,8 +55,7 @@ course **Foundation on HPC**, a course in common among MHPC and DSSC
 
 ### Part 2: parallel programming (I.G.)
 
-- Friday November 3:
-  
+- Friday November 3 (removed)
 
 - Monday November 6: 
   - lecture one: Parallel Thinking
