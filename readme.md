@@ -56,14 +56,14 @@ course **Foundation on HPC**, a course in common among MHPC and DSSC
 ### Part 2: parallel programming (I.G.)
 
 - Friday November 3:
+  
+
+- Monday November 6: 
   - lecture one: Parallel Thinking
   - lecture two : Parallel Programming with MPI (part 1)
   - tutorial: Basic Examples of Parallel Programming with MPI
-  - exercise session (mandatory for MHPC students)
-
-- Monday November 6: 
-  - lecture one: MPI Communications 
-  - lecture two : Parallel Programming with MPI (part 2)
+  - lecture three: MPI Communications 
+  - lecture four: Parallel Programming with MPI (part 2)
   - tutorial: Basic Examples of Parallel Programming 
   - exercise session (mandatory for MHPC students)
 
