@@ -15,14 +15,14 @@ course **Foundation on HPC**, a course in common among MHPC and DSSC
   - lecture one: introduction  to HPC (part 1)
   - lecture two : introduction to HPC (part 2)
   - tutorial: using a HPC platform 
-  - exercise session (mandatory for MHPC students)
+  - exercise session: compute weak/strong scalability  (mandatory for MHPC students)
 - Friday October 6: 
-  - lecture one: modern CPU for HPC (part 1)
-  - tutorial : tools/methods to identify/understand your CPUs
-  - exercise session (mandatory for MHPC students)
+  - lecture one: modern CPU for HPC (S.C.)
+  - lecture two: the road to exascale (L.T)
+  - exercise session: compute weak/strong scalability (mandatory for MHPC students)
 - Monday October 9:
-  - lecture one: modern CPU for HPC (part 2)
-  - tutorial :   profiling tools (likwid/perf etc..)
+  - lecture one: introduction to optimization techniques (SC)
+  - lecture two : more on optimization techniques (L.T.)
   - tutorial: exercise on optimization 
   - exercise session (mandatory for MHPC students)
 - Friday October 13: 
@@ -54,8 +54,6 @@ course **Foundation on HPC**, a course in common among MHPC and DSSC
   - exercise session (mandatory for MHPC students)
 
 ### Part 2: parallel programming (I.G.)
-
-- Friday November 3 (removed)
 
 - Monday November 6: 
   - lecture one: Parallel Thinking
@@ -110,9 +108,10 @@ course **Foundation on HPC**, a course in common among MHPC and DSSC
   - Parallel Programming: How To (for MHPC students only)
 
 - Friday December 1 (for MHPC students only):
-  - Exame
+  - Exam
   
 ### Part 3: advanced topics
+
 
 ### Preparation
 
