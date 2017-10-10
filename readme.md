@@ -9,6 +9,32 @@ This repository contains the  materials/programs/assignements and workspaces for
 course **Foundation on HPC**, a course in common among MHPC and DSSC
 
 
+## References&Books
+
+#### Introduction to High Performance Computing for Scientists and Engineers
+by Georg Hager and Gerhard Wellein
+Paperback: 356 pages
+Publication date  July 2, 2010
+Editors (Chapman & Hall/CRC Computational Science)
+
+#### Introduction to High-Performance Scientific Computing,by Victor Eijkhout
+The source and pdf of the book (as well as lecture slides) can be found in this repository:
+https://bitbucket.org/VictorEijkhout/hpc-book-and-course
+10.5281/zenodo.49897
+
+#### Optimizing HPC Applications with Intel Cluster Tools 
+Paperback – October 15, 2014
+by Alexander Supalov  (Author), Andrey Semin  (Author), Michael Klemm  (Author), & 1 more
+ISBN-13: 978-1430264965  ISBN-10: 1430264969  Edition: 1st
+
+#### High Performance Parallelism Pearls, 1st Edition
+Multicore and Many-core Programming Approaches
+by Reinders   &    Jeffers  
+Morgan Kaufmann, Print Book ISBN :9780128021187
+
+
+
+
 ### Part 1: foundation on HPC  (S.C/L.T.)
 
 - Monday October 2:
@@ -21,10 +47,12 @@ course **Foundation on HPC**, a course in common among MHPC and DSSC
   - lecture two: the road to exascale (L.T)
   - exercise session: compute weak/strong scalability (mandatory for MHPC students)
 - Monday October 9:
-  - lecture one: introduction to optimization techniques (SC)
+  - lecture one: introduction to optimization techniques (L.T.)
   - lecture two : more on optimization techniques (L.T.)
   - tutorial: exercise on optimization 
   - exercise session (mandatory for MHPC students)
+- Wednesday October 11:
+   - tutorial: again on optimization 
 - Friday October 13: 
   - lecture one: Memory hierarchy  (part 1)
   - tutorial: tools and method to understand memory hierarchy 
