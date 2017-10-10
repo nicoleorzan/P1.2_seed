@@ -127,7 +127,7 @@ int ijk(int N, int i, int j, int k)
 {
   int res;
 
-  res = i * (N*N*N) + j * (N*N) + k;
+  res = i * (N*N) + j * (N) + k;
   return res;
 }
 
@@ -165,7 +165,7 @@ int main(int argc, char **argv)
   RMax = get_RMax();
   
   // allocate contiguous memory for particles coordinates
-  x    = (double*)calloc(Np * 4, sizeof(double));
+  x    = (double*)calloc(Np * 3, sizeof(double));
   y    = x + Np;
   z    = y + Np;
 
