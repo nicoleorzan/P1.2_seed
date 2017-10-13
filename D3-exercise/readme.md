@@ -22,7 +22,7 @@ Exercise 2:  download a code and then profile it by means of gprof
 
 A code you should become familiar during this course is hpl benchmark.
 You can get it here:  http://www.netlib.org/benchmark/hpl/
-So download it and tryo to compile it and then make a simple run 
+So download it, try to compile it and then make a simple run 
 
 once done this try to profile the code::
 

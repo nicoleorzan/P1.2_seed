@@ -54,8 +54,8 @@ Morgan Kaufmann, Print Book ISBN :9780128021187
 - Wednesday October 11:
    - tutorial: again on optimization 
 - Friday October 13: 
-  - lecture one: Memory hierarchy  (part 1)
-  - tutorial: tools and method to understand memory hierarchy 
+  - tutorial: basic debugging&profiling
+  - tutorial: some more optimization techniques  
   - exercise session (mandatory for MHPC students)
 - Monday October 16:
   - lecture one: Memory hierarchy  (part 2)
