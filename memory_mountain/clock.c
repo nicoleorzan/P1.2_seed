@@ -86,7 +86,7 @@ double core_mhz(int verbose) {
 	return cpu_ghz * 1000.0;
     }
     if (verbose) {
-	printf("Processor Clock Rate ~= %.4f GHz (extracted from file)\n", cpu_ghz);
+	printf("#Processor Clock Rate ~= %.4f GHz (extracted from file)\n", cpu_ghz);
     }
     return cpu_ghz * 1000;
 }
