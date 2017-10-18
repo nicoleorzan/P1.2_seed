@@ -1,0 +1,28 @@
+There may be statistical fluctuations when this small code is profiled by gprof,
+especially when the single run does not last "enough".
+
+If you take into account that gprof has a fixed sampling rate of 100 samples/sec,
+we could say that "enough" means at least 30secs. A "better enough" is about 1 minute.
+
+In any case, there is an additional workaround: the stacking of different profiling
+results for the final analysis.
+It works like the following:
+
+[ 1] compile your code with -g -pg, and you run the $executable with suitable parameters
+
+[ 2] rename the resulting gmon.out in, say, gmon.stack
+      mov gmon.out gmon.stack 
+
+[ 3] run again $executable, again with suitable (perhaps different) parameters
+
+[ 4] stack the results:
+      gprof -s $executable gmon.out gmon.stack
+
+[ 5] repeat the steps [3 -4] how many times you feel adequate
+
+[ 6] analyze the final stacked result with gprof
+      gprof [options] $executable gmon.stack  [ > analysis | pipeline to other utilities like gprof2dot ]
+      
+
+Hope this may help.
+However, that is nothing more than in the manual :)
