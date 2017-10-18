@@ -1,0 +1,2 @@
+Per creare un grafico per le tabelle dei tempi degli avoid avoidable, avviare lo "scriptmodif" per fare girare gli avoid da 0 a 6 per 12 volte. Modificare l'input dati all'interno del file.
+I risultati dello script verranno infilati nei file tempi_lop{k}, i quali vengono dati in input allo script pythonscript che restituisce in uscita il file risultati.txt dove sono infilate le medie temporali dei vari loop
