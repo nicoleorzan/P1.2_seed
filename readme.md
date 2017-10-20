@@ -33,39 +33,37 @@ by Reinders   &    Jeffers
 Morgan Kaufmann, Print Book ISBN :9780128021187
 
 
-
-
 ### Part 1: foundation on HPC  (S.C/L.T.)
 
 - Monday October 2:
-  - lecture one: introduction  to HPC (part 1)
-  - lecture two : introduction to HPC (part 2)
+  - lecture one: [introduction to HPC] (part 1)
+  - lecture two: [introduction to HPC] (part 2)
   - tutorial: using a HPC platform 
-  - exercise session: compute weak/strong scalability  (mandatory for MHPC students)
+  - exercise session: [compute weak/strong scalability]  (mandatory for MHPC students)
 - Friday October 6: 
-  - lecture one: modern CPU for HPC (S.C.)
-  - lecture two: the road to exascale (L.T)
-  - exercise session: compute weak/strong scalability (mandatory for MHPC students)
+  - lecture one: [modern CPU for HPC] (S.C.)
+  - lecture two: [the road to exascale] (L.T)
+  - exercise session: [compute weak/strong scalability] (mandatory for MHPC students)
 - Monday October 9:
-  - lecture one: introduction to optimization techniques (L.T.)
-  - lecture two : more on optimization techniques (L.T.)
-  - tutorial: exercise on optimization 
+  - lecture one: [introduction to optimization techniques] (L.T.)
+  - lecture two: [more on optimization techniques] (L.T.)
+  - lecture three: [code timing] (L.T)
   - exercise session (mandatory for MHPC students)
 - Wednesday October 11:
    - tutorial: again on optimization 
 - Friday October 13: 
-  - tutorial: basic debugging&profiling
+  - tutorial: [basic debugging&profiling]
   - tutorial: some more optimization techniques  
   - exercise session (mandatory for MHPC students)
 - Monday October 16:
-  - lecture one: Memory hierarchy  (part 2)
-  - tutorial: tools and method to understand memory hierarchy 
-  - tutorial: exercise on memory
-  - exercise session (mandatory for MHPC students)
-- Friday October 20: 
-  - lecture one: optimizing for memory 
-  - tutorial: exercise on memory optimization 
+  - lecture one: [Memory hierarchy] 
+  - lecture two: [memory optimization]
+  - tutorial: run mountain tool. 
   - exercise session (mandatory for MHPC students) 
+- Friday October 20: 
+  - tutorial :  tools and method to understand memory hierarchy
+  - tutorial:   profiling with valgrind and perf      
+  - exercise session (mandatory for MHPC students)
 - Monday October 23:
   - lecture one: multicore/multicpu platform 
   - tutorial :   tools/methods to exploit multicore/multhithread architectures 
@@ -80,6 +78,14 @@ Morgan Kaufmann, Print Book ISBN :9780128021187
   - lecture one : final recap part one 
   - tutorial: review assigement part one 
   - exercise session (mandatory for MHPC students)
+
+### Assignement first part: 
+ - A1: [compute weak/strong scalability] Due time: Monday 9 october midnight 
+ - A2: [loop_optimization]  Due time: Monday 16 october 
+ - A3: [distribute_particle] Due time: Thursday 19 october 
+ - A4: [Download-a-code-and-then-profile-it-by-means-of-gprof]: Monday 23
+ - A5: [Transpose a matrix] Due time Wednesday 25
+
 
 ### Part 2: parallel programming (I.G.)
 
@@ -107,7 +113,7 @@ Morgan Kaufmann, Print Book ISBN :9780128021187
   - Advanced Parallelization of a simple problem (mandatory for MHPC students)
   
 - Wednesday November 15 (for MHPC students only):
-  - Exame
+  - Exam
   
 - Friday November 17:
   - lecture one: Parallel Programming with CUDA (part 1)
@@ -140,12 +146,46 @@ Morgan Kaufmann, Print Book ISBN :9780128021187
   
 ### Part 3: advanced topics
 
+- Monday Decemeber 4: 
+  - advanced topic 1
+  - exercise session (mandatory for MHPC students)
+  
+- Wednesday December 6:
+  - advanced topic 2 
 
-### Preparation
+- Monday Decemeber 11: 
+  - advanced topic 3
+  - exercise session (mandatory for MHPC students)
+  
+- Wednesday December 13:
+  - advanced topic 4  
+
+- Friday  December 15:
+  - advanced topic 5
+  - exercise session (mandatory for MHPC students)
+
+[introduction to HPC]: https://github.com/sissa/P1.2_seed/blob/master/lectures/MHPC-FHPC-lecture1.pdf
+[compute weak/strong scalability]: https://github.com/sissa/P1.2_seed/tree/master/D1-hands-on#part-2-compute-strong-and-weak-scalability-of-an-hpc-application
+[modern CPU for HPC]: https://github.com/sissa/P1.2_seed/blob/master/lectures/MHPC-FHPC-lecture2.pdf
+[the road to exascale]: https://github.com/sissa/P1.2_seed/blob/master/lectures/MHPC-FHPC-lecture2b.pdf
+[introduction to optimization techniques]: https://github.com/sissa/P1.2_seed/blob/master/lectures/MHPC-FHPC-lecture3.pdf
+[more on optimization techniques]: https://github.com/sissa/P1.2_seed/blob/master/lectures/MHPC-FHPC-lecture3b.pdf
+[code timing]: https://github.com/sissa/P1.2_seed/blob/master/lectures/MHPC-FHPC-lecture3c.pdf 
+[basic debugging&profiling]: https://github.com/sissa/P1.2_seed/blob/master/lectures/MHPC-FHPC-lecture4.pdf
+[Memory hierarchy]:  https://github.com/sissa/P1.2_seed/blob/master/lectures/MHPC-FHPC-lecture5.pdf
+[memory optimization]: https://github.com/sissa/P1.2_seed/blob/master/lectures/MHPC-FHPC-lecture5.pdf
+[Download-a-code-and-then-profile-it-by-means-of-gprof]: https://github.com/sissa/P1.2_seed/tree/master/D3-exercise#exercise-2--download-a-code-and-then-profile-it-by-means-of-gprof
+[loop_optimization]: https://github.com/sissa/P1.2_seed/tree/master/D4-hands-on#part-1
+[distribute_particle]: https://github.com/sissa/P1.2_seed/tree/master/D4-hands-on#part-2-distribute-particle-code 
+[Transpose a matrix]: https://github.com/sissa/P1.2_seed/tree/master/D5-exercise#matrix-transpose-and-fast-transpose
+ 
+
+
+### Preparation 
 
 New material will be uploaded frequently,
 
-Remeber to set a second remote
+Remember to set a second remote
 
 '''
   git remote add P1.2_seed https://github.com/sissa/P1.2_seed.git
