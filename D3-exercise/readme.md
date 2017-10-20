@@ -8,13 +8,15 @@ hands-on tools
 please download all codes and play with them 
 
 
+Exercise 0
+===========
+
+execute and take times of all the implementations provided in directory loop_optimization
+
 Exercise 1
 ============
 
 profile the code provide (distribute particle), identify the hotspot and start thinking how to optimize
-
-
-
 
 
 Exercise 2:  download a code and then profile it by means of gprof
