@@ -194,7 +194,7 @@ int main(int argc, char **argv)
   // ---------------------------------------------------
 
   
-  printf(" v0 :: "); fflush(stdout);
+  // printf(" v0 :: "); fflush(stdout);
 
   double dist;
   double half_size = 0.5 / Ng;
@@ -228,7 +228,7 @@ int main(int argc, char **argv)
 
   ctime += TCPU_TIME - tstart;
 
-  printf("\t%g sec\n", ctime);
+  printf("%f \n", ctime);
 
   free(Grid);  
   free(x);    

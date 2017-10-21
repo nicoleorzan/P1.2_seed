@@ -1,6 +1,6 @@
 /*
 
-  SESTO STEP: INSERISCO LE VARIABILI REGISTER
+  SETTIMO STEP: CREO LE NUOVE VARIABILI PART E JKS PER LAVORARE DIRETTAMENTE IN 3D, TOLGO LE VARIABILI MAS E GRID E LE RISPETTIVE FUNZIONI
 
  * This file is part of the exercises for the Lectures on 
  *   "Foundations of High Performance Computing"
@@ -56,91 +56,10 @@
 #define TCPU_TIME (clock_gettime( CLOCK_PROCESS_CPUTIME_ID, &ts ), (double)ts.tv_sec +	\
 		   (double)ts.tv_nsec * 1e-9)
 
-
-typedef enum {NGP, CIC, TSC} MAS_type;
-
-MAS_type MAS_select;
-double   RMax;
-
-
-// =======================================================================
-// function declaration
-
-
-double MAS(double);
-double get_RMax(void);
-
-int    ijk(int, int, int, int);
-
-// =======================================================================
-// code segment
-
-
-
-// Mass ASsignment routine
-// this routine returns the fraction of mass that have to be assigned
-// to a cell at distance d
-double MAS(double d)
-{
-  double distance = fabs(d); //valore assoluto di x
-  double result;
-  
-  if(MAS_select == NGP)
-    {
-      if (distance < 0.5) result=1.0;
-      else if (distance == 0.5) result=0.5;
-      else if (distance > 0.5) result=0.0;
-    }
-  
-  else if(MAS_select == CIC)
-    result = ( distance < 1 ? 1.-distance: 0);
-
-  else
-    {
-      if (distance < 0.5) result = (0.75 - pow(distance, 2));
-      else if (distance >= 0.5 && distance < 1.5) result= ( 0.5 * pow(1.5-distance,2) );
-      else if (distance >= 1.5) result=0.0;
-    }
-  
-  return result;
-}
-
-
-
-double get_RMax(void)
-{
-  double result;
-  
-  if(MAS_select == NGP)
-    result = 0.5;
-  
-  else if(MAS_select == CIC)
-    result = 1.0;
-
-  else
-    result = 1.5;
-  
-  return result;
-
-}
-
-
-
-int ijk(int N, int i, int j, int k)
-{
-  int res;
-
-  res = i * (N*N) + j * (N) + k;
-  return res;
-}
-
-
-
 int main(int argc, char **argv)
 {
   
-  double           *x, *y, *z;
-  double           *Grid;
+  double           *parts, RMax;
   int              Np, Ng, i, j, k, p;
   
   
@@ -158,81 +77,66 @@ int main(int argc, char **argv)
     }
     
   
-  // get the number of particles to use
   Np = atoi( *(argv + 1) );
-  // get the number of grid points
   Ng = atoi( *(argv + 2) );
-  // get the type of weight function to use
-  MAS_select = atoi( *(argv + 3) );
-
-  RMax = get_RMax();
-
-
+  RMax = 2;
   
   // allocate contiguous memory for particles coordinates
-  x    = (double*)calloc(Np * 3, sizeof(double)); //4
-  y    = x + Np;
-  z    = y + Np;
+  parts = (double*)calloc(Np * 3, sizeof(double));
 
-  // allocate contiguous memory for grid cells
-  Grid = (double*)calloc(Ng * Ng * Ng, sizeof(double));
-    
   // initialize random number generator
   //srand48(clock());   // change seed at each call
   srand48(997766);    // same seed to reproduce results
 
   // initialize mock coordinates, in the interval [0, 1[
   //printf("initialize coordinates..\n");
-  for(i = 0; i < 3*Np; i++)
-    x[i] = drand48();
 
   // for the sake of simplicity, we'll assume that all particles have the same unitary mass
 
   
-  // ---------------------------------------------------
-  // LOOP 0: the worst case
-  // ---------------------------------------------------
 
+  int Np3 = Np*3;
   
-  printf(" v0 :: "); fflush(stdout);
+  for(i = 0; i < Np3; i++)  parts[i] = drand48();
+  // printf(" v0 :: "); fflush(stdout);
 
   double dist;
+  double dummy=0;
+  double RMax2 = RMax * RMax;
   double register half_size = 0.5 / Ng;
+  double register Ng_inv = (double)1.0 / Ng;
   
   ctime = 0;
   tstart = TCPU_TIME;
-  double  RMax2 = RMax * RMax;
-  double register Ng_inv = (double)1.0 / Ng;
 
+  double *jks = (double*)calloc(Ng,sizeof(double));
+   
+  for(i = 0; i < Ng; i++) jks[i] = (double)i * Ng_inv + half_size;
   
   
   // loop over all particles
-  for(p = 0; p < Np; p++){
+  for(p = 0; p < Np3; p+=3)
     // loop over all cells
-    for(i = 0; i < Ng; i++)
-      for(j = 0; j < Ng; j++)
-	for(k = 0; k < Ng; k++)
-	  {
-	    
-	    // double dx, dy, dz;
-	    double register dx2  = x[p] - (double)i * Ng_inv + half_size; dx2 = dx2 * dx2;
-	    double register dy2 = y[p] - (double)j * Ng_inv + half_size; dy2 = dy2 * dy2;
-	    double register dz = z[p] - (double)k * Ng_inv + half_size;
-	    
-	    dist = dx2 + dy2 + dz*dz;
-	    
-	    if(dist < RMax2)
-	      Grid[ijk(Ng, i, j, k)] += MAS(dist);
-	  }
-  }
+    for(i = 0; i < Ng; i++){
+      double register dx2  = parts[p] - jks[i]; dx2 = dx2 * dx2;
+      for(j = 0; j < Ng; j++){
+	double register dy2 =parts[p+1] - jks[j];
+	dy2 = dx2 + dy2*dy2;
+	for(k = 0; k < Ng; k++){
+	  double register dz = parts[p+2] - jks[k];
+	  dist = dy2 + dz*dz;
+	  if(dist < RMax2) dummy +=sqrt(dist);
+	}
+      }
+    }
   
   
   ctime += TCPU_TIME - tstart;
 
-  printf("\t%g sec\n", ctime);
+  printf("%f \n", ctime);
 
-  free(Grid);  
-  free(x);    
+  free(parts);  
+  free(jks);    
   
   return 0;
 }

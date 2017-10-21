@@ -1,6 +1,6 @@
 /*
 
-QUARTO STEP: CALCOLO SUBITO DX^2 E DY^2 E POI LI SOMMO IN DIST
+  QUINTO STEP: PORTO FUORI LOOP SULLA PARTICELLE (p)
 
  * This file is part of the exercises for the Lectures on 
  *   "Foundations of High Performance Computing"
@@ -194,7 +194,7 @@ int main(int argc, char **argv)
   // ---------------------------------------------------
 
   
-  printf(" v0 :: "); fflush(stdout);
+  // printf(" v0 :: "); fflush(stdout);
 
   double dist;
   double half_size = 0.5 / Ng;
@@ -205,30 +205,32 @@ int main(int argc, char **argv)
   double Ng_inv = (double)1.0 / Ng;
 
   
-  // loop over all cells
-  for(i = 0; i < Ng; i++)
-    for(j = 0; j < Ng; j++)
-      for(k = 0; k < Ng; k++)
-	{
-	  // loop over all particles
-	  for(p = 0; p < Np; p++)
-	    {
-	      // double dx, dy, dz;
-	      double dx2  = x[p] - (double)i * Ng_inv + half_size; dx2 = dx2 * dx2;
-	      double dy2 = y[p] - (double)j * Ng_inv + half_size; dy2 = dy2 * dy2;
-	      double dz = z[p] - (double)k * Ng_inv + half_size;
-	     	      
-	      dist = dx2 + dy2 + dz*dz;
-	      
-	      if(dist < RMax2)
-		Grid[ijk(Ng, i, j, k)] += MAS(dist);
-	    }
+  
+  // loop over all particles
+  for(p = 0; p < Np; p++){
+    // loop over all cells
+    for(i = 0; i < Ng; i++)
+      for(j = 0; j < Ng; j++)
+	for(k = 0; k < Ng; k++)
+	  {
+	    
+	    
+	    // double dx, dy, dz;
+	    double dx2  = x[p] - (double)i * Ng_inv + half_size; dx2 = dx2 * dx2;
+	    double dy2 = y[p] - (double)j * Ng_inv + half_size; dy2 = dy2 * dy2;
+	    double dz = z[p] - (double)k * Ng_inv + half_size;
+	    
+	    dist = dx2 + dy2 + dz*dz;
+	    
+	    if(dist < RMax2)
+	      Grid[ijk(Ng, i, j, k)] += MAS(dist);
 	  }
-
-
+  }
+  
+  
   ctime += TCPU_TIME - tstart;
 
-  printf("\t%g sec\n", ctime);
+  printf("%f \n", ctime);
 
   free(Grid);  
   free(x);    

@@ -177,7 +177,6 @@ int main(int argc, char **argv)
   srand48(997766);    // same seed to reproduce results
 
   // initialize mock coordinates, in the interval [0, 1[
-  printf("initialize coordinates..\n");
   for(i = 0; i < 3*Np; i++)
     x[i] = drand48();
 
@@ -189,7 +188,7 @@ int main(int argc, char **argv)
   // ---------------------------------------------------
 
   
-  printf(" v0 :: "); fflush(stdout);
+  //printf(" v0 :: "); fflush(stdout);
 
   double dist;
   double half_size = 0.5 / Ng;
@@ -215,7 +214,7 @@ int main(int argc, char **argv)
   
   ctime += TCPU_TIME - tstart;
   
-  printf("\t%g sec\n", ctime);
+  printf("%f \n", ctime);
 
   free(Grid);
   free(x);
