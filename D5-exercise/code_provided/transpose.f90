@@ -50,13 +50,13 @@ PROGRAM TRANSPOSE
 
   
   !Implement loops over the blocks of the main Matrices
-  t_start = cclock( )
+  call cpu_time(t_start)
   DO i = 1, matrixdim
     DO j = 1, matrixdim
       AT( i, j ) = A( j, i )
     END DO
   END DO
-  t_stop = cclock( )
+  call cpu_time(t_stop)
 
   WRITE( * , * ) 'Time to perform transpose: ', t_stop - t_start, '(seconds)'
 
