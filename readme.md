@@ -73,9 +73,8 @@ Morgan Kaufmann, Print Book ISBN :9780128021187
   - tutorial: tools for benchmarking : HPL /stream/ MPI benchmarks 
   - exercise session (mandatory for MHPC students)  
 - Monday October 30:
-  - lecture one: understanding/interpreting  benchmarks 
-  - lecture one : final recap part one 
-  - tutorial: review assigement part one 
+  - lecture one: review issues and problems on assignements 
+  - lecture two : final recap part one 
   - exercise session (mandatory for MHPC students)
 
 ### Assignement first part: 
@@ -181,7 +180,7 @@ Morgan Kaufmann, Print Book ISBN :9780128021187
 [memory optimization]: https://github.com/sissa/P1.2_seed/blob/master/lectures/MHPC-FHPC-lecture5.pdf
 [profiling with valgrind and perf]: https://github.com/sissa/P1.2_seed/blob/master/lectures/MHPC-FHPC-lecture6.pdf
 [multicore/multicpu platform]:https://github.com/sissa/P1.2_seed/blob/master/lectures/MHPC-FHPC-lecture7.pdf
-[benchmarking]: https://github.com/sissa/P1.2_seed/blob/master/lectures/MHPC-FHPC-lecture8.pdf
+[introduction to benchmarking]: https://github.com/sissa/P1.2_seed/blob/master/lectures/MHPC-FHPC-lecture8.pdf
 [Download-a-code-and-then-profile-it-by-means-of-gprof]: https://github.com/sissa/P1.2_seed/tree/master/D3-exercise#exercise-2--download-a-code-and-then-profile-it-by-means-of-gprof
 [loop_optimization]: https://github.com/sissa/P1.2_seed/tree/master/D4-hands-on#part-1
 [distribute_particle]: https://github.com/sissa/P1.2_seed/tree/master/D4-hands-on#part-2-distribute-particle-code 
