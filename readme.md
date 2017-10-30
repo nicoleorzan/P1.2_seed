@@ -61,30 +61,34 @@ Morgan Kaufmann, Print Book ISBN :9780128021187
   - tutorial: run mountain tool. 
   - exercise session (mandatory for MHPC students) 
 - Friday October 20: 
-  - tutorial :  tools and method to understand memory hierarchy
-  - tutorial:   profiling with valgrind and perf      
+  - tutorial:   [profiling with valgrind and perf]      
   - exercise session (mandatory for MHPC students)
 - Monday October 23:
-  - lecture one: multicore/multicpu platform 
+  - lecture one: [multicore/multicpu platform] 
   - tutorial :   tools/methods to exploit multicore/multhithread architectures 
   - tutorial:  multicore/multithreaded  libraries 
   - exercise session (mandatory for MHPC students)
 - Friday October 27: 
-  - lecture one: introduction to benchmarking 
+  - lecture one: [introduction to benchmarking] 
   - tutorial: tools for benchmarking : HPL /stream/ MPI benchmarks 
   - exercise session (mandatory for MHPC students)  
 - Monday October 30:
-  - lecture one: understanding/interpreting  benchmarks 
-  - lecture one : final recap part one 
-  - tutorial: review assigement part one 
+  - lecture one: review issues and problems on assignements 
+  - lecture two : final recap part one 
   - exercise session (mandatory for MHPC students)
 
 ### Assignement first part: 
- - A1: [compute weak/strong scalability] Due time: Monday 9 october midnight 
- - A2: [loop_optimization]  Due time: Monday 16 october 
- - A3: [distribute_particle] Due time: Thursday 19 october 
- - A4: [Download-a-code-and-then-profile-it-by-means-of-gprof]: Monday 23
- - A5: [Transpose a matrix] Due time Wednesday 25
+ - A01: [compute weak/strong scalability] Due time: Monday 9 october midnight 
+ - A02: [loop_optimization]  Due time: Monday 16 october 
+ - A03: [distribute_particle] Due time: Thursday 19 october 
+ - A04: [Download-a-code-and-then-profile-it-by-means-of-gprof]: Monday 23
+ - A05: [Transpose a matrix] Due time Wednesday 25
+ - A06: [Stream] Due time: Friday 27
+ - A07: [nodeperf] Due time: November 5 (optional) midnight
+ - A08: [latency_with_MPI] Due time: Monday 30 October midnight
+ - A09: [HPL with MKL] Due time: November 5 midnight 
+ - A10: [precompiled HPL] Due time: November 5 midnight 
+ - A11: [compile_and_run HPCG] Due time: November 5 midnight 
 
 
 ### Part 2: parallel programming (I.G.)
@@ -174,12 +178,19 @@ Morgan Kaufmann, Print Book ISBN :9780128021187
 [basic debugging&profiling]: https://github.com/sissa/P1.2_seed/blob/master/lectures/MHPC-FHPC-lecture4.pdf
 [Memory hierarchy]:  https://github.com/sissa/P1.2_seed/blob/master/lectures/MHPC-FHPC-lecture5.pdf
 [memory optimization]: https://github.com/sissa/P1.2_seed/blob/master/lectures/MHPC-FHPC-lecture5.pdf
+[profiling with valgrind and perf]: https://github.com/sissa/P1.2_seed/blob/master/lectures/MHPC-FHPC-lecture6.pdf
+[multicore/multicpu platform]:https://github.com/sissa/P1.2_seed/blob/master/lectures/MHPC-FHPC-lecture7.pdf
+[introduction to benchmarking]: https://github.com/sissa/P1.2_seed/blob/master/lectures/MHPC-FHPC-lecture8.pdf
 [Download-a-code-and-then-profile-it-by-means-of-gprof]: https://github.com/sissa/P1.2_seed/tree/master/D3-exercise#exercise-2--download-a-code-and-then-profile-it-by-means-of-gprof
 [loop_optimization]: https://github.com/sissa/P1.2_seed/tree/master/D4-hands-on#part-1
 [distribute_particle]: https://github.com/sissa/P1.2_seed/tree/master/D4-hands-on#part-2-distribute-particle-code 
 [Transpose a matrix]: https://github.com/sissa/P1.2_seed/tree/master/D5-exercise#matrix-transpose-and-fast-transpose
- 
-
+[Stream]: https://github.com/sissa/P1.2_seed/tree/master/D7-materials#exercise-1-run-stream-benchmark-to-test-different-performance-when-wrongly-assigned-the-processor
+[nodeperf]: https://github.com/sissa/P1.2_seed/tree/master/D7-materials/nodeperf#exercise-2-compile-and-run-nodeperfc-program
+[latency_with_MPI]: https://github.com/sissa/P1.2_seed/blob/master/D7-materials/README.md#run-impi-benchmark-ping-pong-to-measure-latency-among-mpi-processes-assigned-on-different-cores
+[HPL with MKL]: https://github.com/sissa/P1.2_seed/blob/master/D7-materials/README.md#exercise-3-run-hpl-benchmark-using-mkl-multithread-library 
+[precompiled HPL]: https://github.com/sissa/P1.2_seed/blob/master/D8-materials/README.md#exercise-4-running--hpl-on--c3hpc
+[compile_and_run HPCG]: https://github.com/sissa/P1.2_seed/tree/master/D8-materials#exercise-3--get-hpcg-benchmark-and-compile-it
 
 ### Preparation 
 
