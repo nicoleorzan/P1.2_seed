@@ -102,7 +102,7 @@ Morgan Kaufmann, Print Book ISBN :9780128021187
   - tutorial: Basic Examples of Parallel Programming 
   - exercise session (mandatory for MHPC students)
   
-  NOTE x DSSC: today assignment is the implementation of the PI approximation using MPI. 
+  ASSIGNMENT x DSSC: today assignment is the implementation of the PI approximation using MPI. 
   The exercise was presented in class and schematically described on [today slides]. 
   The serial code is included in the hands-on folder.  
 
