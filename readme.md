@@ -103,7 +103,8 @@ Morgan Kaufmann, Print Book ISBN :9780128021187
   - exercise session (mandatory for MHPC students)
   
   NOTE x DSSC: today assignment is the implementation of the PI approximation using MPI. 
-  The exercise was presented in class and described on [today slides]
+  The exercise was presented in class and scheatically described on [today slides]. 
+  The serial code is included in the hands-on folder.  
 
 - Wednesday November 8 (for MHPC students only): 
   - lecture one: Strategies of Parallelization
