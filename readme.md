@@ -103,7 +103,7 @@ Morgan Kaufmann, Print Book ISBN :9780128021187
   - exercise session (mandatory for MHPC students)
   
   NOTE x DSSC: today assignment is the implementation of the PI approximation using MPI. 
-  The exercise was presented in class at described on today slides 
+  The exercise was presented in class and described on [today slides]
 
 - Wednesday November 8 (for MHPC students only): 
   - lecture one: Strategies of Parallelization
@@ -194,6 +194,7 @@ Morgan Kaufmann, Print Book ISBN :9780128021187
 [HPL with MKL]: https://github.com/sissa/P1.2_seed/blob/master/D7-materials/README.md#exercise-3-run-hpl-benchmark-using-mkl-multithread-library 
 [precompiled HPL]: https://github.com/sissa/P1.2_seed/blob/master/D8-materials/README.md#exercise-4-running--hpl-on--c3hpc
 [compile_and_run HPCG]: https://github.com/sissa/P1.2_seed/tree/master/D8-materials#exercise-3--get-hpcg-benchmark-and-compile-it
+[today slides]:  https://github.com/sissa/P1.2_seed/blob/master/lectures/ParallelProgramming/Day1-MHPC-2.pdf
 
 ### Preparation 
 
