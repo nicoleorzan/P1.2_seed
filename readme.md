@@ -101,6 +101,9 @@ Morgan Kaufmann, Print Book ISBN :9780128021187
   - lecture four: Parallel Programming with MPI (part 2)
   - tutorial: Basic Examples of Parallel Programming 
   - exercise session (mandatory for MHPC students)
+  
+  NOTE x DSSC: today assignment is the implementation of the PI approximation using MPI. 
+  The exercise was presented in class at described on today slides 
 
 - Wednesday November 8 (for MHPC students only): 
   - lecture one: Strategies of Parallelization
