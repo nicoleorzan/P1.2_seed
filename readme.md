@@ -194,7 +194,7 @@ Morgan Kaufmann, Print Book ISBN :9780128021187
 [HPL with MKL]: https://github.com/sissa/P1.2_seed/blob/master/D7-materials/README.md#exercise-3-run-hpl-benchmark-using-mkl-multithread-library 
 [precompiled HPL]: https://github.com/sissa/P1.2_seed/blob/master/D8-materials/README.md#exercise-4-running--hpl-on--c3hpc
 [compile_and_run HPCG]: https://github.com/sissa/P1.2_seed/tree/master/D8-materials#exercise-3--get-hpcg-benchmark-and-compile-it
-[today slides]:  https://github.com/sissa/P1.2_seed/blob/master/lectures/ParallelProgramming/Day1-MHPC-2.pdf
+[today slides]:  https://github.com/sissa/P1.2_seed/blob/master/lectures/ParallelProgramming/Day2-MHPC-3.pdf
 
 ### Preparation 
 
