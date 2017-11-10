@@ -138,8 +138,8 @@ Morgan Kaufmann, Print Book ISBN :9780128021187
   - lecture one: Parallel Programming with CUDA (part 3, mandatory for MHPC students)
   - exercise session (mandatory for MHPC students)
 
-- Wednesday November 22 (TBD): 
-
+- Wednesday November 22 (S.C., L.T.): 
+  - Advanced Topics  
 
 - Friday November 24 (S.C., L.T.)
   - Benchmarking MPI applications
@@ -165,11 +165,10 @@ Morgan Kaufmann, Print Book ISBN :9780128021187
   - advanced topic 2 
 
 - Monday Decemeber 11: 
-  - advanced topic 3
-  - exercise session (mandatory for MHPC students)
+  - More on parallel programming 
   
 - Wednesday December 13:
-  - advanced topic 4  
+  - More on parallel programing  
 
 - Friday  December 15:
   - advanced topic 5
