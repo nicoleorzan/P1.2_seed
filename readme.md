@@ -101,6 +101,10 @@ Morgan Kaufmann, Print Book ISBN :9780128021187
   - lecture four: Parallel Programming with MPI (part 2)
   - tutorial: Basic Examples of Parallel Programming 
   - exercise session (mandatory for MHPC students)
+  
+  ASSIGNMENT x DSSC: today assignment is the implementation of the PI approximation using MPI. 
+  The exercise was presented in class and schematically described on [today slides]. 
+  The serial code is included in the hands-on folder.  
 
 - Wednesday November 8 (for MHPC students only): 
   - lecture one: Strategies of Parallelization
@@ -117,7 +121,7 @@ Morgan Kaufmann, Print Book ISBN :9780128021187
   - Advanced Parallelization of a simple problem (mandatory for MHPC students)
   
 - Wednesday November 15 (for MHPC students only):
-  - Exam
+  - More exercises on MPI and OpenMP programming
   
 - Friday November 17:
   - lecture one: Parallel Programming with CUDA (part 1)
@@ -130,9 +134,8 @@ Morgan Kaufmann, Print Book ISBN :9780128021187
   - lecture one: Parallel Programming with CUDA (part 3, mandatory for MHPC students)
   - exercise session (mandatory for MHPC students)
 
-- Wednesday November 22 (for MHPC students only): 
-  - Advanced Practicals
-  - Advanced Practicals
+- Wednesday November 22 (TBD): 
+
 
 - Friday November 24 (S.C., L.T.)
   - Benchmarking MPI applications
@@ -143,10 +146,10 @@ Morgan Kaufmann, Print Book ISBN :9780128021187
   - advanced exercise session (mandatory for MHPC students)
   
 - Wednesday November 29: (for MHPC students only)
-  - Parallel Programming: How To (for MHPC students only)
+  - Exam
 
 - Friday December 1 (for MHPC students only):
-  - Exam
+  - Parallel Programming: How To (for MHPC students only)
   
 ### Part 3: advanced topics
 
@@ -191,6 +194,7 @@ Morgan Kaufmann, Print Book ISBN :9780128021187
 [HPL with MKL]: https://github.com/sissa/P1.2_seed/blob/master/D7-materials/README.md#exercise-3-run-hpl-benchmark-using-mkl-multithread-library 
 [precompiled HPL]: https://github.com/sissa/P1.2_seed/blob/master/D8-materials/README.md#exercise-4-running--hpl-on--c3hpc
 [compile_and_run HPCG]: https://github.com/sissa/P1.2_seed/tree/master/D8-materials#exercise-3--get-hpcg-benchmark-and-compile-it
+[today slides]:  https://github.com/sissa/P1.2_seed/blob/master/lectures/ParallelProgramming/Day2-MHPC-3.pdf
 
 ### Preparation 
 
