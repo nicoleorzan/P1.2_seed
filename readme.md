@@ -121,7 +121,7 @@ Morgan Kaufmann, Print Book ISBN :9780128021187
   - Advanced Parallelization of a simple problem (mandatory for MHPC students)
   
 - Wednesday November 15 (for MHPC students only):
-  - Exam
+  - More exercises on MPI and OpenMP programming
   
 - Friday November 17:
   - lecture one: Parallel Programming with CUDA (part 1)
@@ -134,9 +134,8 @@ Morgan Kaufmann, Print Book ISBN :9780128021187
   - lecture one: Parallel Programming with CUDA (part 3, mandatory for MHPC students)
   - exercise session (mandatory for MHPC students)
 
-- Wednesday November 22 (for MHPC students only): 
-  - Advanced Practicals
-  - Advanced Practicals
+- Wednesday November 22 (TBD): 
+
 
 - Friday November 24 (S.C., L.T.)
   - Benchmarking MPI applications
@@ -147,10 +146,10 @@ Morgan Kaufmann, Print Book ISBN :9780128021187
   - advanced exercise session (mandatory for MHPC students)
   
 - Wednesday November 29: (for MHPC students only)
-  - Parallel Programming: How To (for MHPC students only)
+  - Exam
 
 - Friday December 1 (for MHPC students only):
-  - Exam
+  - Parallel Programming: How To (for MHPC students only)
   
 ### Part 3: advanced topics
 
