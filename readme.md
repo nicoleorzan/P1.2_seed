@@ -115,6 +115,10 @@ Morgan Kaufmann, Print Book ISBN :9780128021187
   - tutorial: Basic Examples of Parallel Programming with OpenMP
   - lecture two (mandatory for MHPC students): Parallel Programming with OpenMP (part 2)
   - exercise session (mandatory for MHPC students)
+
+  ASSIGNMENT x DSSC: today assignment is the implementation of the PI approximation using OpenMP. 
+  The exercise was presented in class and schematically described on [today slides]. 
+  Provide the scaling curve of the multi-threaded version of the code on 1, 2, 4, 8, 16, 20 Threads performed on a Ulisse's compute node.  
   
 - Monday November 12:
   - Parallelization of a simple problem 
