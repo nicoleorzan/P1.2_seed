@@ -12,7 +12,7 @@ int main( int argc, char * argv[] ){
 
   MPI_Init( &argc, &argv );
   MPI_Comm_size( MPI_COMM_WORLD, &npes );
-  MPI_Comm_size( MPI_COMM_WORLD, &rank );
+  MPI_Comm_rank( MPI_COMM_WORLD, &rank );
 
   loc_size = SIZE / npes;
 
@@ -23,7 +23,7 @@ int main( int argc, char * argv[] ){
     A[i] = (double) ( rand() % 1000 + 1 );
   }
 
-  fp = fopen( "matrix.dat", "w" );
+  fp = fopen( "matrix.dat", "w+" );
   fseek( fp, sizeof(double) * loc_size * SIZE * rank, SEEK_SET );
   fwrite( A, sizeof(double), loc_size * SIZE, fp );
   fclose( fp );
