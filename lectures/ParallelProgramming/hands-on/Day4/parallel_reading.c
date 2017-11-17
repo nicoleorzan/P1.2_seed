@@ -1,8 +1,11 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <mpi.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
 
-#define SIZE 4096
+#define SIZE 4
 
 int main( int argc, char * argv[] ){
 
@@ -18,14 +21,9 @@ int main( int argc, char * argv[] ){
 
   A = (double *) malloc( loc_size * SIZE * sizeof(double) );
 
-  for( i = 0; i < loc_size * SIZE; i++ ){
-
-    A[i] = (double) ( rand() % 1000 + 1 );
-  }
-
-  fp = fopen( "matrix.dat", "w+" );
+  fp = fopen( "matrix.dat", "r" );
   fseek( fp, sizeof(double) * loc_size * SIZE * rank, SEEK_SET );
-  fwrite( A, sizeof(double), loc_size * SIZE, fp );
+  fread( A, sizeof(double), loc_size * SIZE, fp );
   fclose( fp );
 
   free( A );
