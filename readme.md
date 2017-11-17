@@ -123,6 +123,9 @@ Morgan Kaufmann, Print Book ISBN :9780128021187
 - Monday November 12:
   - Parallelization of a simple problem 
   - Advanced Parallelization of a simple problem (mandatory for MHPC students)
+
+ASSIGNMENT x DSSC: today assignment is the implementation of the Parallel Distributed MatMul as presented in class.
+The Exercise is divided in 5 main points: 1) Distribute the Matrix, 2) Initialize the Distributed Matrix, 3) At every time step use MPI_Allgather to send at all processes a block of column of B, 4) Repeat point 3 for all blocks of column of B and 5) Sequential Print of the Matrix C with all processes sending data to P0 (example given in class and reference sent by e-mail). 
   
 - Wednesday November 15 (for MHPC students only):
   - More exercises on MPI and OpenMP programming
