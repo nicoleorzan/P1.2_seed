@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#define SIZE 4096
+#define SIZE 4
 
 int main( int argc, char * argv[] ){
 
@@ -11,13 +11,8 @@ int main( int argc, char * argv[] ){
 
   A = (double *) malloc( SIZE * SIZE * sizeof(double) );
 
-  for( i = 0; i < SIZE * SIZE; i++ ){
-
-    A[i] = (double) ( rand() % 1000 + 1 );
-  }
-
-  fp = fopen( "matrix.dat", "w" );
-  fwrite( A, sizeof(double), SIZE * SIZE, fp );
+  fp = fopen( "matrix.dat", "r" );
+  fread( A, sizeof(double), SIZE * SIZE, fp );
   fclose( fp );
 
   free( A );
