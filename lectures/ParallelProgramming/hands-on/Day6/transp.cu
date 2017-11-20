@@ -48,7 +48,7 @@ PRINT_MAT(N,N,h_A);
 cudaMemcpy( d_A, h_A, matsize, cudaMemcpyHostToDevice );
 cudaMemcpy( d_AT, h_AT, matsize, cudaMemcpyHostToDevice );
 
-transpose<<< ((N*N)+NUM_THREADS)/NUM_THREAD , NUM_THREADS >>>( d_A , d_AT )
+transpose<<< ((N*N)+NUM_THREADS)/NUM_THREADS , NUM_THREADS >>>( d_A , d_AT )
 cudaMemcpy( h_AT, d_AT, matsize, cudaMemcpyDeviceToHost );
 
 PRINT_MAT(N,N,h_AT);
