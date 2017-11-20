@@ -28,8 +28,8 @@ void PRINT_MAT(int N, int M, double * matr){
 
 int main(){
 
-double h_A h_AT;
-double d_A d_AT;
+double h_A, h_AT;
+double d_A, d_AT;
 size_t matsize = N * N * sizeof(double); //long integer
 
 h_A = (double *) malloc( matsize );
