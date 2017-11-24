@@ -134,6 +134,9 @@ The Exercise is divided in 5 main points: 1) Distribute the Matrix, 2) Initializ
   - lecture one: Parallel Programming with CUDA (part 1)
   - tutorial: Basic Examples of Parallel Programming with CUDA
   - exercise session (mandatory for MHPC students)
+  
+ASSIGNMENT x DSSC: today assignment is the implementation of a naive version of Parallel Transpose of a NxN matrix in CUDA. 
+  
 
 - Monday November 20: 
   - lecture one: Parallel Programming with CUDA (part 2)

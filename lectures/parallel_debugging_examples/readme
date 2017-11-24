@@ -1,0 +1,5 @@
+Just three files for live hands-on examples
+
+[1] my_threadprog.c   : first hello-world-style example to show gdb multi-threading capability
+[2] parallel_gdb.c    : trivial example to start a gdb parallel session
+[3] parallel_gdb.v2.c : a small change to improve the main message of the lecture
