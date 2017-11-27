@@ -9,31 +9,19 @@ __global__ void matmult( double * d_A, double * d_B, double * d_C )
 {
   __shared__ double Arow[N];
   
-  for (int i=0;i<N;i++){
-    Arow[i]=d_A[i+N*blockIdx.x];
-  }
-  
-  for (int i=0; i<N; i++){
-    for (int j=0; j<N; j++){
-      d_C[i]+=Arow[j]*d_B[j*N+i];
-    }
-  }
-
-  /*
-    idx = threadIdx.x
-    idy = blockIdx.y
-    while(idy<N){
+  int idx = threadIdx.x;
+  int idy = blockIdx.y;
+  while(idy<N){
     Arow[idy]=d_A[idy+N*idx];
-    idy+=blockDim.x
-    }
-    idy+= threadIdx.y
-
-    for (int k=0; k<N; k++){
-    d_C[idx*N+idy]+=Arow[k]*d_B[k*N+idy];
-    idy+=threadDim.x;
-    }
-   */
+    idy+=blockDim.x;
+  }
+  idy+= threadIdx.y;
   
+  for (int k=0; k<N; k++){
+    d_C[idx*N+idy]+=Arow[k]*d_B[k*N+idy];
+    idx+=threadDim.x;
+  }
+   
   __syncthreads();
   
 }
