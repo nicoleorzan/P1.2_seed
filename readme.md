@@ -177,8 +177,7 @@ ASSIGNMENT x DSSC: today assignment is the implementation of a naive version of 
   - More on parallel programing  
 
 - Friday  December 15:
-  - advanced topic 5
-  - exercise session (mandatory for MHPC students)
+  - final written exam (MHPC only)
 
 [introduction to HPC]: https://github.com/sissa/P1.2_seed/blob/master/lectures/MHPC-FHPC-lecture1.pdf
 [compute weak/strong scalability]: https://github.com/sissa/P1.2_seed/tree/master/D1-hands-on#part-2-compute-strong-and-weak-scalability-of-an-hpc-application
