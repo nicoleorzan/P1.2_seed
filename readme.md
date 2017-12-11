@@ -156,10 +156,10 @@ ASSIGNMENT x DSSC: today assignment is the implementation of a naive version of 
   - advanced exercise session (mandatory for MHPC students)
   
 - Wednesday November 29: (for MHPC students only)
-  - Exam
+  - Parallel Programming: How To (for MHPC students only)
 
 - Friday December 1 (for MHPC students only):
-  - Parallel Programming: How To (for MHPC students only)
+  - Mid-term exam
   
 ### Part 3: advanced topics
 
@@ -177,8 +177,7 @@ ASSIGNMENT x DSSC: today assignment is the implementation of a naive version of 
   - More on parallel programing  
 
 - Friday  December 15:
-  - advanced topic 5
-  - exercise session (mandatory for MHPC students)
+  - final written exam: multiple choice test (MHPC only)
 
 [introduction to HPC]: https://github.com/sissa/P1.2_seed/blob/master/lectures/MHPC-FHPC-lecture1.pdf
 [compute weak/strong scalability]: https://github.com/sissa/P1.2_seed/tree/master/D1-hands-on#part-2-compute-strong-and-weak-scalability-of-an-hpc-application
