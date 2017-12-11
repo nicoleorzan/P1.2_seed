@@ -156,10 +156,10 @@ ASSIGNMENT x DSSC: today assignment is the implementation of a naive version of 
   - advanced exercise session (mandatory for MHPC students)
   
 - Wednesday November 29: (for MHPC students only)
-  - Exam
+  - Parallel Programming: How To (for MHPC students only)
 
 - Friday December 1 (for MHPC students only):
-  - Parallel Programming: How To (for MHPC students only)
+  - Mid-term exam
   
 ### Part 3: advanced topics
 
