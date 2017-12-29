@@ -11,12 +11,14 @@ int idy = threadIdx.y + (blockIdx.y * blockDim.y);
 
 if (idx<N){
 if (idy<N){
-d_AT[idx + idy*N] = d_A[ind*N + idy];
+d_AT[idx + idy*N] = d_A[idx*N + idy];
 }
 }
 
-void PRINT_MAT(int N, int M, double * matr){
-  for(int j = 0; j < N; j++ ){
+}
+
+void PRINT_MAT(int P, int M, double * matr){
+  for(int j = 0; j < P; j++ ){
     for(int i = 0; i < M; i++ ){
       printf("%f ",matr[i+j*M]);
     }
@@ -24,22 +26,22 @@ void PRINT_MAT(int N, int M, double * matr){
   }
 }
 
-}
+
 
 int main(){
 
-double h_A, h_AT;
-double d_A, d_AT;
+double * h_A, * h_AT;
+double * d_A, * d_AT;
 size_t matsize = N * N * sizeof(double); //long integer
 
 h_A = (double *) malloc( matsize );
 h_AT = (double *) malloc( matsize );
 
-cudaMalloc((void**), &d_A, matsize );
-cudaMalloc((void**), &d_AT, matsize );
+cudaMalloc((void**) &d_A, matsize );
+cudaMalloc((void**) &d_AT, matsize );
 
 for(int i=0;i<N;i++){
-h_A[i]=(double *)i;
+h_A[i]=(double )i;
 h_AT[i]=0.;
 }
 
@@ -48,7 +50,7 @@ PRINT_MAT(N,N,h_A);
 cudaMemcpy( d_A, h_A, matsize, cudaMemcpyHostToDevice );
 cudaMemcpy( d_AT, h_AT, matsize, cudaMemcpyHostToDevice );
 
-transpose<<< ((N*N)+NUM_THREADS)/NUM_THREADS , NUM_THREADS >>>( d_A , d_AT )
+transpose<<< ((N*N)+NUM_THREADS)/NUM_THREADS , NUM_THREADS >>>( d_A , d_AT );
 cudaMemcpy( h_AT, d_AT, matsize, cudaMemcpyDeviceToHost );
 
 PRINT_MAT(N,N,h_AT);

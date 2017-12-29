@@ -1,7 +1,17 @@
 #include <omp.h>
 #include <stdio.h>
+#include <sys/resource.h>
+#include <sys/times.h>
+#include <time.h>
+
+
+#define TCPU_TIME (clock_gettime( CLOCK_PROCESS_CPUTIME_ID, &ts ), (double)ts.tv_sec +  (double)ts.tv_nsec * 1e-9);
 
 int main(){
+
+  double tstart,ctime;
+  struct timespec ts;
+  tstart = TCPU_TIME;
 
   long n , i ;
   double  w,x,sum,pi,f,a;
@@ -19,6 +29,8 @@ int main(){
 
   pi = w * sum ;
   printf("Value of pi: %.16g\n", pi);
+
+  ctime += TCPU_TIME - tstart;
 
   return 0;
 }

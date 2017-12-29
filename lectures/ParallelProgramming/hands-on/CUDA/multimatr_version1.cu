@@ -28,25 +28,25 @@ void PRINT_MAT(int P, int M, double * matr){
   }
 }
 
-}
+
 
 int main(){
   
-  double h_A ,h_B, h_C;
-  double d_A ,d_B, d_C;
+  double * h_A, * h_B, * h_C;
+  double * d_A, * d_B, * d_C;
   size_t matsize = N * N * sizeof(double); //long integer
 
   h_A = (double *) malloc( matsize );
   h_B = (double *) malloc( matsize );
   h_C = (double *) malloc( matsize );
   
-  cudaMalloc((void**), &d_A, matsize );
-  cudaMalloc((void**), &d_B, matsize );
-  cudaMalloc((void**), &d_C, matsize );
+  cudaMalloc((void**) &d_A, matsize );
+  cudaMalloc((void**) &d_B, matsize );
+  cudaMalloc((void**) &d_C, matsize );
   
   for(int i=0;i<N;i++){
-    h_A[i]=(double *)i;
-    h_B[i]=(double *)i;
+    h_A[i]=(double )i;
+    h_B[i]=(double )i;
     h_C[i]=0.;
   }
   

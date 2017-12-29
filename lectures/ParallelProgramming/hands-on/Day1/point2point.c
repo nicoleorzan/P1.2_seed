@@ -18,7 +18,7 @@ int main(int argc, char * argv[] ){
 
   double * send, * recv;
   
-  int rank, size;
+  int rank=0, size=1;
   int i;
 
   MPI_Init(&argc, &argv);
