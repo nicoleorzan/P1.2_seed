@@ -56,6 +56,9 @@ int main ( int argc , char *argv[ ] )
       local_M++;
   }
 
+
+
+
   if (myid ==0) { //if I am the master process gather results from others
     M = local_M ;
     for (proc=1; proc<numprocs ; proc++) {

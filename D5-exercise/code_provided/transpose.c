@@ -50,7 +50,7 @@ int main( int argc, char * argv [] ) {
   MATRIXDIM=atoi(argv[1]);
 
   if( MATRIXDIM < 1 ){
-    fprintf( stderr, "Error. Inconsistent parameters.\nProgram exit ...\n", argv[0]);
+    fprintf( stderr, "Error. Inconsistent parameters.\nProgram exit ...\n");//, argv[0]);
     exit(1);
   }
 
@@ -72,7 +72,8 @@ int main( int argc, char * argv [] ) {
   free( A );
   free( AT );
   
-  fprintf( stdout, " Matrix transpose executed. Time Elapsed %9.4f secs\n", t_end-t_start );
+  fprintf( stdout,"%f \n", t_end-t_start );
+  // " Matrix transpose executed. Time Elapsed %9.4f secs\n"
   
   return 0;
 }
