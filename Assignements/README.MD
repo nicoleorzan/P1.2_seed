@@ -8,17 +8,21 @@ Please provide here your report for each assignement, naming it in the following
 
 AXX_yoursurname.MD 
 
+### Note for 2017/2018  DSSC students
+
+In order to be admitted to the oral exam you should complete and provide a short report on the assignement marked as mandatory: 
+
 
 Assignement first part: 
- - A01: [compute weak/strong scalability] Due time: Monday 9 october midnight 
- - A02: [loop_optimization]  Due time: Monday 16 october 
- - A03: [distribute_particle] Due time: Thursday 19 october 
+ - A01: [compute weak/strong scalability] Mandatory for DSSC
+ - A02: [loop_optimization]  Mandatory for DSSC
+ - A03: [distribute_particle]  
  - A04: [Download-a-code-and-then-profile-it-by-means-of-gprof]: Monday 23
- - A05: [Transpose a matrix] Due time Wednesday 25
- - A06: [Stream] Due time: Friday 27
+ - A05: [Transpose a matrix] Mandatory for DSCC
+ - A06: [Stream] Mandatory for DSSC
  - A07: [nodeperf] Due time: November 5 (optional) midnight
  - A08: [latency_with_MPI] Due time: Monday 30 October midnight
- - A09: [HPL with MKL] Due time: November 5 midnight 
+ - A09: [HPL with MKL] Mandatory for DSSC 
  - A10: [precompiled HPL] Due time: November 5 midnight 
  - A11: [compile_and_run HPCG] Due time: November 5 midnight 
 
