@@ -1,4 +1,12 @@
 # MPI intranode
+
+We will use Intel MPI benchmarks available here [https://github.com/intel/mpi-benchmarks]
+Some more info are here [https://software.intel.com/en-us/articles/intel-mpi-benchmarks/]
+
+Compilation is trivial (see readme file) and you can compile it with any kind of MPI implementation.
+
+However you do not even need to compile it: it is available on Ulysses cluster.
+
 Apparentely `impi` is avaliable:
 ```
 $ module load impi-trial/5.0.1.035 
