@@ -17,14 +17,14 @@ Assignement first part:
  - A01: [compute weak/strong scalability] Mandatory for DSSC
  - A02: [loop_optimization]  Mandatory for DSSC
  - A03: [distribute_particle]  
- - A04: [Download-a-code-and-then-profile-it-by-means-of-gprof]: Monday 23
+ - A04: [Download-a-code-and-then-profile-it-by-means-of-gprof]
  - A05: [Transpose a matrix] Mandatory for DSCC
  - A06: [Stream] Mandatory for DSSC
- - A07: [nodeperf] Due time: November 5 (optional) midnight
- - A08: [latency_with_MPI] Due time: Monday 30 October midnight
+ - A07: [nodeperf]
+ - A08: [latency_with_MPI] 
  - A09: [HPL with MKL] Mandatory for DSSC 
- - A10: [precompiled HPL] Due time: November 5 midnight 
- - A11: [compile_and_run HPCG] Due time: November 5 midnight 
+ - A10: [precompiled HPL]  
+ - A11: [compile_and_run HPCG]  
 
 
  [introduction to HPC]: https://github.com/sissa/P1.2_seed/blob/master/lectures/MHPC-FHPC-lecture1.pdf
