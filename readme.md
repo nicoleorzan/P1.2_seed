@@ -161,6 +161,8 @@ ASSIGNMENT x DSSC: today assignment is the implementation of a naive version of 
 - Friday December 1 (for MHPC students only):
   - Mid-term exam
   
+ASSIGNMENT x DSSC: starting from the serial version of the Jacobi exercise available in [mid-exam], implement an OpenMP and a CUDA version of the code. The GPU version is expected to work using a single GPU. Make a performance analysis of the new implemented codes comparing CPU (1, 5, 10 cores) Vs GPU and plotting performances on histogram based chart. The performance analysis must consider the data transfer as far as the GPU version is concerned. For a top score implementation of the CUDA version using shared memory is requested.  
+  
 ### Part 3: advanced topics
 
 - Monday Decemeber 4: 
@@ -204,6 +206,7 @@ ASSIGNMENT x DSSC: today assignment is the implementation of a naive version of 
 [compile_and_run HPCG]: https://github.com/sissa/P1.2_seed/tree/master/D8-materials#exercise-3--get-hpcg-benchmark-and-compile-it
 [today slides1]:  https://github.com/sissa/P1.2_seed/blob/master/lectures/ParallelProgramming/Day2-MHPC-3.pdf
 [today slides2]:  https://github.com/sissa/P1.2_seed/blob/master/lectures/ParallelProgramming/Day3-MHPC-1.pdf
+[mid-exam]:  https://github.com/sissa/MidExam2017
 
 ### Preparation 
 
