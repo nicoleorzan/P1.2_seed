@@ -1,7 +1,7 @@
 #!/bin/bash                                                                     
 
 echo -n "">>cachemiss1024.txt
-gcc FUNZIONANTE.c -lm
+gcc transpose_block.c -lm
 dimblock=0
 while [ $dimblock -le 100 ]
 do   
