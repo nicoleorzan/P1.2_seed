@@ -1,13 +1,8 @@
 #include <string.h>
-
 #include <stdlib.h>
-
 #include <stdio.h>
-
 #include <time.h>
-
 #include <sys/time.h>
-
 #include<assert.h>
 
 #define N 4
@@ -90,14 +85,14 @@ int main(int argc, char* argv[]){
 
   //fill initial values  
 
-  int num=0;
+  //int num=0;
   for( i = 1; i <= dimension; ++i ){
     for( j = 1; j <= dimension; ++j ){
       matrix[ ( i * ( dimension + 2 ) ) + j ] = 0.5;
-      num++;
+      //num++;
     }
   }
-  printf("num=%i\n",num);
+  //printf("num=%i\n",num);
 	     
   // set up borders 
   increment = 100.0 / ( dimension + 1 );

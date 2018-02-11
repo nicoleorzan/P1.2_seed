@@ -1,8 +1,0 @@
-In this folder you can find all the data I have obtained from the different runs of the code.
-
-'No Blocks': this folder contains the data related to the given code 'transpose.c'.
-I analyzed matrices of sizes 1024, 2048 and 4096. I took transposing times and cache misses data.
-
-'Blocks': this folder contains the data related to the code transpose_blocks.c, so the implementation of the fast transpose. As before I analyzed matrices of sizes 1024, 2048 and 4096, using blocks of sizes 1, 2, 4, 8, 16, 32, 64, 128 256 and 512. I took transposing times and cache misses data.
-
-I tought this folder was useful because the graphs of the data in the report seem maybe too much perfect.
