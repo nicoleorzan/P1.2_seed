@@ -2,32 +2,33 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-//#define SIZE 4096
+#define N 4
 #define MPI_TAG 10
 //#define DEBUG
 
-void PRINT_MAT(int N, int M, double * matr);
-void mult_mat(double * A, double * B, double * C, int l, int N, int M);
+void PRINT_MAT(int P, int M, double * matr);
+void mult_mat(double * A, double * B, double * C, int l, int P, int M);
 
 int main(int argc, char * argv[]){
 
   double * A, * B, *C;
-  int N, Nloc;
+  //int N
+  int Nloc;
   int rank, size;
   
-  if( argc < 2 ){
+ /* if( argc < 2 ){
     fprintf( stderr, "size of matrix needed!!\n");
     exit(1);
   }
-  
-  N = atoi(argv[1]);
+  */
+  //N = atoi(argv[1]);
   A = ( double * ) malloc( N * N * sizeof( double ) );
   B = ( double * ) malloc( N * N * sizeof( double ) );
   C = ( double * ) malloc( N * N * sizeof( double ) );
   
   
 
-  for(int i = 0; i < N*N; i++ ){
+/*  for(int i = 0; i < N*N; i++ ){
     if (i<N+1 ){
       A[i] = 0.;// ( rand() % 100 + 1 );
       B[i] = 3.;
@@ -46,12 +47,12 @@ int main(int argc, char * argv[]){
     }
     C[i] = 0.;
   }
-  /*
+  */
  for(int i = 0; i < N*N; i++ ){
     A[i]=(double) (rand() % 100 + 1);
     B[i]=(double) (rand() % 100 + 1);
   }  
-  */
+  
   MPI_Init(&argc, &argv);
   MPI_Comm_size(MPI_COMM_WORLD, &size);
   MPI_Comm_rank(MPI_COMM_WORLD, &rank);
@@ -158,8 +159,8 @@ int main(int argc, char * argv[]){
 }
 
 
-void PRINT_MAT(int N, int M, double * matr){
-  for(int j = 0; j < N; j++ ){
+void PRINT_MAT(int P, int M, double * matr){
+  for(int j = 0; j < P; j++ ){
     for(int i = 0; i < M; i++ ){
       printf("%f ",matr[i+j*M]);
     }
@@ -167,12 +168,12 @@ void PRINT_MAT(int N, int M, double * matr){
   }
 }
 
-void mult_mat(double * A, double * B, double * C, int l, int N, int M){
+void mult_mat(double * A, double * B, double * C, int l, int P, int M){
     
   for (int i=0;i<M;i++){
     for (int j=0;j<M;j++){
-      for (int k=0;k<N;k++){
-	C[l*M+j+i*N]+=A[i*N+k]*B[k*M+j];
+      for (int k=0;k<P;k++){
+	C[l*M+j+i*P]+=A[i*P+k]*B[k*M+j];
       }
     }
   }

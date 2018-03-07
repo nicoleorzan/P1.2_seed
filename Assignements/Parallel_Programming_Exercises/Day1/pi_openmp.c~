@@ -9,12 +9,12 @@
 
 int main(){
 
-  double tstart, ctime;
+  double tstart,ctime;
   struct timespec ts;
   tstart = TCPU_TIME;
 
-  long n , i;
-  double  w, x, sum, pi, a;
+  long n , i ;
+  double  w,x,sum,pi,f,a;
 
   n = 1000000000;
   w = 1.0/n;
