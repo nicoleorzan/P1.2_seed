@@ -1,14 +1,20 @@
 # Compile and run nodeperf.c program
 
-nodeperf program is used to benchmark a cluster.
-I ran the program on Cosilt.
-To ran it I loaded gnu, openmpi and mkl modules.
+## part 1:
+In this part I compiled nodeperf program using the Intel MPI compile wrapper script for Intel compile.rI used nodeperf to benchmark the Cosilt cluster.
+To ran nodeperf I loaded the following modules:
+```
+module load gnu/4.8.3
+module load openmpi/1.10.2/gnu/4.8.3
+module load mkl/intel
 
 I compiled with the following command line:
 ```
-$ mpicc -fopenmp -O3 -g nodeperf.c  -m64 -I${MKLROOT}/include -o nodeperf.x -L${MKLROOT}/lib/intel64 -Wl,--no-as-needed -lmkl_intel_lp64 -lmkl_sequential -lmkl_core -lpthread -lm -ldl
+mpicc -O2 -xHost -qopenmp -mkl nodeperf.c -o nodeperf
 ```
+Where I used the compiler option -O2, -qopenmp to enable OpenMP support and I linked with the MKL library.
 
+```
 To run it I fixed the number of cores to 24:
 ```
 $ OMP_NUM_THREADS=24
@@ -18,6 +24,17 @@ then controlled the thread palcement specifying the following enviroment variabl
 $ OMP_PLACES=cores
 ```
 Which means that the number of the threads has to be the same as the cores.
+
+Let's compute the theoretical peak performance for a Coslit's node:
+12(cores) * 2.7GHz(clock rate) * 2(sockets) *4*2(num floating point ops per cycle)  = 518.4 Gflop/s.
+
+## part 2: using gcc and/or pgi compiler
+
+I compiled with the following command line:
+```
+$ mpicc -fopenmp -O3 -g nodeperf.c  -m64 -I${MKLROOT}/include -o nodeperf.x -L${MKLROOT}/lib/intel64 -Wl,--no-as-needed -lmkl_intel_lp64 -lmkl_sequential -lmkl_core -lpthread -lm -ldl
+```
+Then I ran with the same two commands as above.
 
 I got the following output:
 ```
@@ -62,3 +79,5 @@ Malloc done.  Used 1846080096 bytes
 (22 of 24): NN lda=15000 ldb= 192 ldc=15000 0 0 0 22158.391 b15
 (23 of 24): NN lda=15000 ldb= 192 ldc=15000 0 0 0 22987.775 b15
 ```
+We can immediately notice the written phrase ```No multi-threaded MPI detected (Hybrid may or may not work)```.
+Here we are reaching 23020.059 Mflops, which is the 4.44% of the theoretical peak performance. May be that this way nodeperf does not work because multi-threading is not working.
