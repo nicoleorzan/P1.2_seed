@@ -31,7 +31,7 @@ int main(){
   printf("Value of pi: %.16g\n", pi);
 
   ctime += TCPU_TIME - tstart;
-  printf("time %g\n",ctime);
+
   return 0;
 }
 

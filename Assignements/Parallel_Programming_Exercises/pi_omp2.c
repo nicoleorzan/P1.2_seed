@@ -4,8 +4,13 @@
 #include <sys/times.h>
 #include <time.h>
 
-
-#define TCPU_TIME (clock_gettime( CLOCK_PROCESS_CPUTIME_ID, &ts ), (double)ts.tv_sec +  (double)ts.tv_nsec * 1e-9);
+double cclock(){
+    struct timeval tmp;
+    double sec;
+    gettimeofday( &tmp, (struct timezone *)0 );
+    sec = tmp.tv_sec + ((double)tmp.tv_usec)/1000000.0;
+    return sec;
+}
 
 int main(){
 
