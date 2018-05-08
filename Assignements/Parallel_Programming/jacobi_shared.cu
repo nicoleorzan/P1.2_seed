@@ -94,7 +94,7 @@ int main(int argc, char* argv[]){
   }
 
   printf("initial matrix\n");
-  // PRINT_MAT(dimension+2,dimension+2,matrix);
+  PRINT_MAT(dimension+2,dimension+2,matrix);
 
   // start algorithm
   t_start = seconds();
@@ -102,13 +102,12 @@ int main(int argc, char* argv[]){
   cudaMemcpy( d_matrix, matrix, byte_dimension, cudaMemcpyHostToDevice );
   cudaMemcpy( d_matrix_new, matrix_new, byte_dimension, cudaMemcpyHostToDevice );
 
-  dim3 gridDim( (dimension+NUMTHREADSPERBLOCK)/NUMTHREADSPERBLOCK, (dimension+NUMTHREADSPERBLOCK)/NUMTHREADSPERBLOCK );
+  dim3 gridDim( (NUMTHREADSPERBLOCK-2)*dimension + 2*NUMTHREADSPERBLOCK, (NUMTHREADSPERBLOCK-2)*dimension + 2*NUMTHREADSPERBLOCK );
   dim3 blockDim(NUMTHREADSPERBLOCK , NUMTHREADSPERBLOCK);
 
   for( it = 0; it < iterations; ++it ){
   
   evolve<<< gridDim, blockDim  >>>( d_matrix, d_matrix_new, dimension );
-    //evolve<<< (dimension+NUMTHREADSPERBLOCK)/NUMTHREADSPERBLOCK , NUMTHREADSPERBLOCK >>>( d_matrix, d_matrix_new, dimension );
 
     // swap the pointers
     tmp_matrix = d_matrix;
@@ -120,7 +119,7 @@ int main(int argc, char* argv[]){
   t_end = seconds();
 
   printf("final matrix\n");
-  //PRINT_MAT(dimension+2,dimension+2,matrix);
+  PRINT_MAT(dimension+2,dimension+2,matrix);
 
   printf( "\nelapsed time = %f seconds\n", t_end - t_start );
   printf( "\nmatrix[%zu,%zu] = %f\n", row_peek, col_peek, matrix[ ( row_peek + 1 ) * ( dimension + 2 ) + ( col_peek + 1 ) ] );
@@ -149,29 +148,35 @@ void PRINT_MAT(int P, int M, double * matr){
 
 __global__ void evolve( double * matrix, double * matrix_new, int dimension ){
 
-  /*  __shared__ double * shared_matrix; //pointer to the part of the matrix I want to share
+  __shared__ double shared_matrix[NUMTHREADSPERBLOCK*NUMTHREADSPERBLOCK];
 
-  shared_matrix = ( double* )malloc( NUMTHREADSPERBLOCK * NUMTHREADSPERBLOCK );
-  */
-  int idx = threadIdx.x + (blockIdx.x * blockDim.x);
-  int idy = threadIdx.y + (blockIdx.y * blockDim.y); 
+  int idx = threadIdx.x + (blockIdx.x * (blockDim.x-2));
+  int idy = threadIdx.y + (blockIdx.y * (blockDim.y-2));
+  int valx = (blockIdx.x * (blockDim.x-2) );
+  int valy = (blockIdx.y * (blockDim.y-2) );
+  int i = threadIdx.x; //from 0 to NUMTHREADSPERBLOCK-1
+  int j = threadIdx.y;
+
+   if(idx <=(dimension + 1) && idy <=(dimension + 1) ){ //+1 perche prendo anche gli elem del bordo
+    shared_matrix [ i *(NUMTHREADSPERBLOCK) + j ] = matrix[ (idx*(dimension + 2)) +(idy) ]; //+2 messo
+    }
   
-  /* if (idx < dimension + 2){
-    if(idy < dimension + 2){
-      shared_matrix [ idx*(dimension)+idy ] = matrix[ idx*(dimension)+idy ];
+  __syncthreads();
+
+
+  if (i>=1 && j>=1 && i<=NUMTHREADSPERBLOCK-1 && j<=NUMTHREADSPERBLOCK-1){ //qui non prendo i bordi, lavoro solo sugli elementi interni, messo <=	
+    if (idx>0 && idx<=dimension && idy>0 && idy<=dimension){
+    if (idx> valx && idx<valx+NUMTHREADSPERBLOCK-1 && idy>valy && idy<valy + NUMTHREADSPERBLOCK-1){
+    matrix_new[ (idx * (dimension+2)) + (idy) ] = ( 0.25 ) * 
+    ( shared_matrix[ ( ( i-1 ) * ( NUMTHREADSPERBLOCK) ) + j ] +  //+2 tolto
+    shared_matrix[ ( i * ( NUMTHREADSPERBLOCK ) ) + ( j+1 ) ] + 	  
+    shared_matrix[ ( ( i+1 ) * ( NUMTHREADSPERBLOCK ) ) + j ] +
+    shared_matrix[ ( i * ( NUMTHREADSPERBLOCK ) ) + ( j-1 ) ] );
     }
   }
-  __syncthreads();*/
+}
+
   
-  if (idx>0 && idx<=dimension){
-    if(idy>0 && idy<=dimension){
-      matrix_new[ ( idx * ( dimension + 2 ) ) + idy ] = ( 0.25 ) * 
-	( matrix[ ( ( idx - 1 ) * ( dimension + 2 ) ) + idy ] + 
-	  matrix[ ( idx * ( dimension + 2 ) ) + ( idy + 1 ) ] + 	  
-	  matrix[ ( ( idx + 1 ) * ( dimension + 2 ) ) + idy ] + 
-	  matrix[ ( idx * ( dimension + 2 ) ) + ( idy - 1 ) ] ); 
-    }
-  }
 }
 
 void save_gnuplot( double *M, size_t dimension ){  

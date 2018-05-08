@@ -45,7 +45,7 @@ int main(){
   cudaMalloc((void**) &d_C, matsize );
   
   for(int i=0;i<N*N;i++){
-    h_A[i]=( rand() % 100 + 1 );// (double )i;
+    h_A[i]=( rand() % 100 + 1 ); //(double )i;
     h_B[i]=( rand() % 100 + 1 ); //(double )i;
     h_C[i]=0.;
   }

@@ -3,27 +3,18 @@
 #include <stdio.h>
 #include <time.h>
 #include <sys/time.h>
-#include<assert.h>
 
-#define N 4
-#define NUMTHREADSPERBLOCK 4
+#define NUMTHREADSPERBLOCK 16
 
 /*** function declarations ***/
 
-void PRINT_MAT(int P, int M, double * matr){
-  for(int j = 0; j < P; j++ ){
-    for(int i = 0; i < M; i++ ){
-      printf("%0.1f ",matr[i+j*M]);
-    }
-    printf("\n");
-  }
-}
+void PRINT_MAT(int P, int M, double * matr);
 
 // save matrix to file
 void save_gnuplot( double *M, size_t dim );
 
 // evolve Jacobi
-__global__  void evolve( double * matrix, double *matrix_new, double * tmp_matrix, size_t dimension, size_t iterations );
+__global__  void evolve( double * matrix, double *matrix_new, int dimension );
 
 
 // return the elapsed time
@@ -40,13 +31,13 @@ int main(int argc, char* argv[]){
   double t_start, t_end, increment;
 
   // indexes for loops
-  size_t i, j;
+  size_t i, j, it;
 
   // initialize matrix
 
   double *matrix, *matrix_new, *tmp_matrix;
-  double *d_matrix, *d_matrix_new;//, *tmp_matrix;
-  size_t dimension = 0, iterations = 0, row_peek = 0, col_peek = 0;
+  double *d_matrix, *d_matrix_new;
+  int dimension = 0, iterations = 0, row_peek = 0, col_peek = 0;
   size_t byte_dimension = 0;
 
  // check on input parameters
@@ -80,19 +71,16 @@ int main(int argc, char* argv[]){
   memset( matrix, 0, byte_dimension );
   memset( matrix_new, 0, byte_dimension );
 
-  cudaMalloc((void**) &d_matrix, byte_dimension );
+  cudaMalloc((void**) &d_matrix, byte_dimension ); //allocating space for d_matrix
   cudaMalloc((void**) &d_matrix_new, byte_dimension );
 
   //fill initial values  
 
-  //int num=0;
   for( i = 1; i <= dimension; ++i ){
     for( j = 1; j <= dimension; ++j ){
       matrix[ ( i * ( dimension + 2 ) ) + j ] = 0.5;
-      //num++;
     }
   }
-  //printf("num=%i\n",num);
 	     
   // set up borders 
   increment = 100.0 / ( dimension + 1 );
@@ -105,8 +93,8 @@ int main(int argc, char* argv[]){
     matrix_new[ ( ( dimension + 1 ) * ( dimension + 2 ) ) + ( dimension + 1 - i ) ] = i * increment;
   }
 
-  printf("initial matrix\n");
-  PRINT_MAT(dimension+2,dimension+2,matrix);
+  //printf("initial matrix\n");
+  //PRINT_MAT(dimension+2,dimension+2,matrix);
 
   // start algorithm
   t_start = seconds();
@@ -114,16 +102,25 @@ int main(int argc, char* argv[]){
   cudaMemcpy( d_matrix, matrix, byte_dimension, cudaMemcpyHostToDevice );
   cudaMemcpy( d_matrix_new, matrix_new, byte_dimension, cudaMemcpyHostToDevice );
 
-  tmp_matrix=matrix;
-  evolve<<< (((dimension+2)*(dimension+2))+NUMTHREADSPERBLOCK)/NUMTHREADSPERBLOCK , NUMTHREADSPERBLOCK >>>( d_matrix, d_matrix_new, tmp_matrix, dimension, iterations );
+  dim3 gridDim( (dimension+NUMTHREADSPERBLOCK)/NUMTHREADSPERBLOCK, (dimension+NUMTHREADSPERBLOCK)/NUMTHREADSPERBLOCK );
+  dim3 blockDim(NUMTHREADSPERBLOCK , NUMTHREADSPERBLOCK);
+
+  for( it = 0; it < iterations; ++it ){
+  
+  evolve<<< gridDim, blockDim  >>>( d_matrix, d_matrix_new, dimension );
+    //evolve<<< (dimension+NUMTHREADSPERBLOCK)/NUMTHREADSPERBLOCK , NUMTHREADSPERBLOCK >>>( d_matrix, d_matrix_new, dimension );
+
+    // swap the pointers
+    tmp_matrix = d_matrix;
+    d_matrix = d_matrix_new;
+    d_matrix_new = tmp_matrix;
+ }
 
   cudaMemcpy( matrix, d_matrix, byte_dimension, cudaMemcpyDeviceToHost );
-
   t_end = seconds();
-  
-  printf("\n");
-  printf("final matrix\n");
-  PRINT_MAT(dimension+2,dimension+2,matrix);
+
+  //printf("final matrix\n");
+  //PRINT_MAT(dimension+2,dimension+2,matrix);
 
   printf( "\nelapsed time = %f seconds\n", t_end - t_start );
   printf( "\nmatrix[%zu,%zu] = %f\n", row_peek, col_peek, matrix[ ( row_peek + 1 ) * ( dimension + 2 ) + ( col_peek + 1 ) ] );
@@ -141,30 +138,30 @@ int main(int argc, char* argv[]){
 
 }
 
+void PRINT_MAT(int P, int M, double * matr){
+  for(int j = 0; j < P; j++ ){
+    for(int i = 0; i < M; i++ ){
+      printf("%0.1f ",matr[i+j*M]);
+    }
+    printf("\n");
+  }
+}
 
+__global__ void evolve( double * matrix, double * matrix_new, int dimension ){
 
-__global__ void evolve( double * matrix, double * matrix_new, double * tmp_matrix, size_t dimension, size_t iterations ){
-
- for( size_t it = 0; it < iterations; ++it ){
-   
   int idx = threadIdx.x + (blockIdx.x * blockDim.x);
-  int i = idx/(dimension+2);
-  int j = idx%(dimension+2);
+  int idy = threadIdx.y + (blockIdx.y * blockDim.y); 
   
-  if (i>0 && i<=dimension){
-    if(j>0 && j<=dimension){
-      matrix_new[ ( i * ( dimension + 2 ) ) + j ] = ( 0.25 ) * 
-	( matrix[ ( ( i - 1 ) * ( dimension + 2 ) ) + j ] + 
-	  matrix[ ( i * ( dimension + 2 ) ) + ( j + 1 ) ] + 	  
-	  matrix[ ( ( i + 1 ) * ( dimension + 2 ) ) + j ] + 
-	  matrix[ ( i * ( dimension + 2 ) ) + ( j - 1 ) ] ); 
+  
+  if (idx>0 && idx<=dimension){
+    if(idy>0 && idy<=dimension){
+      matrix_new[ ( idx * ( dimension + 2 ) ) + idy ] = ( 0.25 ) * 
+	( matrix[ ( ( idx - 1 ) * ( dimension + 2 ) ) + idy ] + 
+	  matrix[ ( idx * ( dimension + 2 ) ) + ( idy + 1 ) ] + 	  
+	  matrix[ ( ( idx + 1 ) * ( dimension + 2 ) ) + idy ] + 
+	  matrix[ ( idx * ( dimension + 2 ) ) + ( idy - 1 ) ] ); 
     }
   }
-  // swap the pointers
-  tmp_matrix = matrix;
-  matrix = matrix_new;
-  matrix_new = tmp_matrix;
- }
 }
 
 void save_gnuplot( double *M, size_t dimension ){  
