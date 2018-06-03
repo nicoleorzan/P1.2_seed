@@ -1,34 +1,12 @@
 # Compile and run nodeperf.c program
 
-## part 1:
-In this part I compiled nodeperf program using the Intel MPI compile wrapper script for Intel compile.rI used nodeperf to benchmark the Cosilt cluster.
+In this part I compiled nodeperf program using. I used nodeperf to benchmark the Cosilt cluster.
 To ran nodeperf I loaded the following modules:
 ```
 module load gnu/4.8.3
 module load openmpi/1.10.2/gnu/4.8.3
 module load mkl/intel
-
-I compiled with the following command line:
 ```
-mpicc -O2 -xHost -qopenmp -mkl nodeperf.c -o nodeperf
-```
-Where I used the compiler option -O2, -qopenmp to enable OpenMP support and I linked with the MKL library.
-
-```
-To run it I fixed the number of cores to 24:
-```
-$ OMP_NUM_THREADS=24
-```
-then controlled the thread palcement specifying the following enviroment variable
-```
-$ OMP_PLACES=cores
-```
-Which means that the number of the threads has to be the same as the cores.
-
-Let's compute the theoretical peak performance for a Coslit's node:
-12(cores) * 2.7GHz(clock rate) * 2(sockets) *4*2(num floating point ops per cycle)  = 518.4 Gflop/s.
-
-## part 2: using gcc and/or pgi compiler
 
 I compiled with the following command line:
 ```
