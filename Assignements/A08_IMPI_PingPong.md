@@ -1,4 +1,4 @@
-#IMPI Benchmark (ping-pong) to measure latency among MPI processes assigned on different cores
+# IMPI Benchmark (ping-pong) to measure latency among MPI processes assigned on different cores
 
 The aim of today’s exercise was to run intel MPI ping-pong benchmark among to processors
 within a node and try to estimate latency and bandwidth. I worked on node cn07-33.
