@@ -165,7 +165,7 @@ __global__ void evolve( double * matrix, double * matrix_new, int dimension ){
 
 
   if (i>=1 && j>=1 && i<=NUMTHREADSPERBLOCK-1 && j<=NUMTHREADSPERBLOCK-1){ //qui non prendo i bordi, lavoro solo sugli elementi interni, messo <=	
-    if (idx>0 && idx<=dimension && idy>0 && idy<=dimension){
+    if (idx>0 && idx<dimension && idy>0 && idy<dimension){ //changed <= in <
     if (idx> valx && idx<valx+NUMTHREADSPERBLOCK-1 && idy>valy && idy<valy + NUMTHREADSPERBLOCK-1){
     matrix_new[ (idx * (dimension+2)) + (idy) ] = ( 0.25 ) * 
     ( shared_matrix[ ( ( i-1 ) * ( NUMTHREADSPERBLOCK) ) + j ] +  //+2 tolto
