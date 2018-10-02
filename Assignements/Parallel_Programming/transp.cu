@@ -15,8 +15,8 @@ void PRINT_MAT(int P, int M, double * matr){
 
 __global__ void transpose( double * d_A, double * d_AT ){
   int idx = threadIdx.x + (blockIdx.x * blockDim.x);
-  int i = idx/N;
-  int j = idx%N;
+  int i = idx/N; //also blockIdx.x can be used
+  int j = idx%N; //also threadIdx.x can be used
   
   if (idx<N*N)  d_AT[i+j*N] = d_A[j+i*N];
 }

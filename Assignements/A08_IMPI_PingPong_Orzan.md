@@ -1,7 +1,7 @@
 # IMPI Benchmark (ping-pong) to measure latency among MPI processes assigned on different cores
 
 The aim of today’s exercise was to run intel MPI ping-pong benchmark among to processors
-within a node and try to estimate latency and bandwidth. I worked on node cn07-33.
+within a node and try to estimate latency and bandwidth. I worked on Ulysses on the node cn07-33.
 To execute the IMPI benchmark, first of all I had to load the following module:
 ```
 module load impi - trial /5.0.1.035
@@ -32,7 +32,7 @@ node
 ```
 So for the latency inside socket 0 I used the command:
 ```
-mpirun - np 2 hwloc - bind core :0 core :5 / u / shared / programs / x86_64 /
+mpirun - np 2 hwloc - bind core :0 core :3 / u / shared / programs / x86_64 /
 intel / impi_5 .0.1/ bin64 / IMB - MPI1 PingPong
 ```
 While for the latency between two sockets I had to change the values of the cores:
@@ -136,4 +136,4 @@ Case cores 0-13:
       4194304           10      1269.10      3151.83
 ```
 We can clearly say that the latency is higher when we bind the process to work on 2 different sockets.
-Computing a mean using the lowest bytes values we obtain that latency between two cores inside in the same socket is 0.39 $\pm$ 0.31 $\mu$s, while between different sockets is 0.60 $\pm$ 0.23 $\mu$s.
+Computing a mean using the lowest bytes values (from 0 to 16)  we obtain that latency between two cores inside in the same socket is 0.39 +- 0.31 microseconds, while between different sockets is 0.60 +- 0.23 microseconds.

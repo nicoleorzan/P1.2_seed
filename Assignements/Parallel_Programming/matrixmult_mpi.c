@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#define N 4
+#define N 4 //size one side of the matrix
 #define MPI_TAG 10
 //#define DEBUG
 
@@ -12,7 +12,7 @@ void mult_mat(double * A, double * B, double * C, int l, int P, int M);
 int main(int argc, char * argv[]){
 
   double * A, * B, *C;
-  //int N
+  //int N;
   int Nloc;
   int rank, size;
   

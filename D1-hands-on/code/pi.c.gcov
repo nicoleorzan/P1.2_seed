@@ -1,0 +1,84 @@
+        -:    0:Source:pi.c
+        -:    0:Graph:pi.gcno
+        -:    0:Data:pi.gcda
+        -:    0:Runs:2
+        -:    0:Programs:1
+        -:    1:/*
+        -:    2: * Copyright (C) 2016 Master in High Performance Computing
+        -:    3: *
+        -:    4: * Adapted from the net by Alberto Sartori. 
+        -:    5: */
+        -:    6:
+        -:    7:// pi.c: Montecarlo integration to determine pi
+        -:    8:
+        -:    9:// We have a circle inscribed inside a square of unit lenght. The
+        -:   10:// ratio between the area of the square (1) and the circle (pi/4) is
+        -:   11:// pi/4. Therefore, if we randomly choose N points inside the square,
+        -:   12:// on average, only M=N*pi/4 points will belong to the circle. From
+        -:   13:// the last relation we can estimate pi.
+        -:   14:
+        -:   15:#include <stdio.h>
+        -:   16:#include <stdlib.h>
+        -:   17:// if you don ' t have drand48 uncomment the following two lines 10
+        -:   18:// #define drand48 1.0/RANDMAXrand
+        -:   19:// #define srand48 srand
+        -:   20:#define seed 68111 // seed for number generator
+        -:   21:
+function main called 2 returned 100% blocks executed 100%
+        2:   22:int main (int argc, char ** argv) {
+        2:   22-block  0
+        -:   23:
+        2:   24:  if (argc<2)
+        2:   24-block  0
+branch  0 taken 1 (fallthrough)
+branch  1 taken 1
+        -:   25:    {
+        1:   26:      printf(" Usage: %s number \n",argv[0]);
+        1:   26-block  0
+call    0 returned 1
+        1:   27:      return 1;
+        -:   28:    }
+        1:   29:  int N = atoi(argv[1]);
+        1:   29-block  0
+call    0 returned 1
+        1:   30:  int M = 0 ;
+        1:   31:  double pi = 0;
+        -:   32:  // point coordinates
+        -:   33:  double x , y;
+        -:   34:  FILE  *output ; // save data in pi.dat
+        1:   35:  output = fopen ("pi.dat" , "w") ;
+call    0 returned 1
+        1:   36:  srand48 ( seed ) ; // seed the number generator
+call    0 returned 1
+        -:   37:
+        -:   38:  unsigned int i;
+    10001:   39:  for (i = 0 ; i < N ; i++)
+    10000:   39-block  0
+    10001:   39-block  1
+branch  0 taken 10000
+branch  1 taken 1 (fallthrough)
+        -:   40:    {
+        -:   41:      // take a point P(x,y) inside the unit square
+    10000:   42:      x = drand48(); 
+    10000:   42-block  0
+call    0 returned 10000
+    10000:   43:      y = drand48();
+call    0 returned 10000
+        -:   44:      
+        -:   45:      // check if the point P(x,y) is inside the circle
+    10000:   46:      if ((x*x + y*y)<1)
+branch  0 taken 7930 (fallthrough)
+branch  1 taken 2070
+     7930:   47:	M++; 
+     7930:   47-block  0
+        -:   48:    }
+        1:   49:  pi = 4.0*M/N ; // calculate area
+        1:   50:  fprintf ( output, "%i\t%f\n", N, pi ) ;
+        1:   50-block  0
+call    0 returned 1
+        1:   51:  printf ( "estimated pi stored in pi.dat \n" ) ;
+call    0 returned 1
+        1:   52:  fclose (output) ;
+call    0 returned 1
+        1:   53:  return 0;
+        -:   54:}

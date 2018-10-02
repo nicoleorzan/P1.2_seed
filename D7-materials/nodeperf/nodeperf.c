@@ -546,8 +546,8 @@ char *imalloc(signed long size, signed long *total)
            return(NULL);
         } else {
            bytes += size;
-           // tmp= (char *) malloc(size);
-           tmp= (char *) mkl_malloc ( size , 4096 );
+           tmp= (char *) malloc(size);
+           //tmp= (char *) mkl_malloc ( size , 4096 );
            if (tmp==NULL) {
               printf("Failed in the malloc for time %ld\n",times);
               fprintf(stderr,"Could not malloc %ld bytes\n",size);

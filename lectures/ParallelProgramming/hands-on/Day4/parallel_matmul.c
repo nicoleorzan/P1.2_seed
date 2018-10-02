@@ -57,27 +57,25 @@ int main(int argc, char * argv[]){
   printf("-----------------------------\n");
   }
   
-  Nloc=N/size;  
+  Nloc = N/size;  
+
   double * Apart, *Bpart, *Cpart;
-  double buf_size_bytes = Nloc*N*sizeof(double);
+  double buf_size_bytes = Nloc * N * sizeof(double);
+  double * sendbuff, * recvbuff;
   Apart = ( double * ) malloc( buf_size_bytes );
   Bpart = ( double * ) malloc( buf_size_bytes );
   Cpart = ( double * ) malloc( buf_size_bytes );
+  
+  sendbuff = ( double * ) malloc( Nloc * Nloc * sizeof( double ) );
+  recvbuff = ( double * ) malloc( buf_size_bytes );
 
-  int start=rank*N*Nloc;
+  int start = rank * N * Nloc;
   for(int i = 0; i < N*Nloc; i++ ){
     Apart[i] = A[i+start];
     Bpart[i] = B[i+start];
     Cpart[i] = C[i+start];
   }
-  
-  double * sendbuff, * recvbuff;
-  sendbuff = ( double * ) malloc( Nloc * Nloc * sizeof( double ) );
-  recvbuff = ( double * ) malloc( buf_size_bytes );
-
-
-
-  
+    
   for (int l=0; l<size; l++){ //<--------
     
     for (int j=0;j<Nloc;j++){
@@ -108,6 +106,8 @@ int main(int argc, char * argv[]){
       
 
   }//end l loop
+
+
     if (rank==0){
       for(int t=0;t<N*Nloc;t++){
 	C[t]=Cpart[t];
